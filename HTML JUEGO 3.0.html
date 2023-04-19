@@ -16,21 +16,72 @@
       position: relative;
     }
 
-    body {
-      background-image: url('Fondo 1.png');
-      background-repeat: no-repeat;
-      /* background-position: center center; */
-      background-size: 100% 100%;
+    #fondoJuego {
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      position: absolute;
     }
 
     #puertaFloridablanca {
       width: 70vw;
+      height: 99vh;
+      z-index: 2;
+      position: absolute;
+    }
+
+    #catedral {
+      width: 100vw;
       height: 100vh;
+      position: absolute;
+      z-index: 1;
+    }
+
+    #floridablancaFondo {
+      z-index: -1; /*por defecto*/
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      transition: opacity 3s ease-out;
+
+    }
+
+    #floridablancaFondo.active {
+      z-index: 2;
+      opacity: 100;
+    }
+
+    #sardina {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      position: absolute;
     }
 
   </style>
 </head>
 <body>
+  <img src="Fondo 1.png" id="fondoJuego">
+
   <img src="puerta de floridablanca.png" id="puertaFloridablanca">
+  <img src="floridablanca fondo.png" id="floridablancaFondo">
+  <img src="catedral (1).png" id="catedral">
+  <img src="sardina.png" id="sardina">
+  <script>
+		/*const puerta = document.getElementById('puertaFloridablanca');
+		const fondo = document.getElementById('floridablancaFondo');
+		puerta.addEventListener('click', function() {
+			fondo.style.zIndex = '2';
+      alert("hola");
+		});*/
+    const puerta = document.getElementById('puertaFloridablanca');
+		const fondo = document.getElementById('floridablancaFondo');
+		puerta.addEventListener('click', function() {
+      fondo.classList.add("active");
+      fondo.style.zIndex = 2;
+		});
+
+	</script>
 </body>
 </html>
